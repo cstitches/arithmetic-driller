@@ -2,6 +2,8 @@
 
 [LIVE PREVIEW](https://cstitches.github.io/arithmetic-driller/)
 
+A random arithmetic problem generator for practicing mental math that generates problems based on user settings.
+
 ## Features
 
 - Able to select any combination of operators

@@ -1,0 +1,344 @@
+/***************************
+FONT IMPORT
+***************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Nunito&family=Righteous&family=Staatliches&display=swap");
+
+/* font-family: 'Dongle', sans-serif;
+
+    font-family: 'Neonderthaw', cursive;
+    
+        font-family: 'Nunito', sans-serif;
+
+    font-family: 'Righteous', cursive;
+
+    font-family: 'Staatliches', cursive;
+    
+    */
+
+/***************************
+CUSTOM PROPERTIES
+
+-p = primary
+-a = accent
+***************************/
+:root {
+  /* --color-p: rgb(75, 167, 187);
+  --color-a: rgb(233, 248, 249); */
+  /* --color-p: rgb(52, 52, 101);
+  /* --color-a: rgb(252, 241, 229); */
+  /* --color-p: #cd5c5c;
+  --color-a: rgb(254, 234, 223); */
+  --color-p: #2c9c88;
+  --color-a: rgb(237, 249, 238);
+  --ff-p: "Nunito", sans-serif;
+  --ff-a: "Staatliches", cursive;
+}
+
+/***************************
+UNIVERSAL BORDER-BOX
+***************************/
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; /* enables smooth scrolling */
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/***************************
+MAIN LAYOUT w/ FLEX
+
+body > header, div#middle, footer
+#middle > section#arith-prob, aside#settings
+***************************/
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#middle {
+  flex: 1;
+  display: flex;
+}
+
+#arith-prob {
+  flex: 1;
+}
+
+#settings {
+  min-width: fit-content;
+}
+
+/***************************
+LAYOUT FOR SECTION#ARITH-PROB
+
+section#arith-prob >
+section.prob-answ-sect
+section.msg-sect
+section.btn-sect
+***************************/
+
+#arith-prob {
+  display: flex;
+  flex-direction: column;
+}
+
+#arith-prob > section {
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+#arith-prob > section:last-child {
+  margin-bottom: 0.5rem;
+}
+
+.prob-answ-sect {
+  flex: 3;
+}
+
+.msg-sect {
+  flex: 1;
+  /* order: -1; */
+}
+
+.btn-sect {
+  flex: 1;
+  display: flex;
+}
+
+/* SECTION.PROB-ANSW-SECT > 
+DIV.PROB-SECT
+DIV.ANSW-SECT
+*/
+
+.prob-answ-sect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.prob-sect {
+  display: flex;
+  align-items: flex-end;
+  gap: 25px;
+  border-bottom: 0.25rem solid rgb(33, 33, 33);
+  margin-bottom: 0.75rem;
+
+  font-size: 3.5rem;
+}
+
+.prob-sect p {
+  margin: 0;
+}
+
+.prob--num-sect {
+  text-align: right;
+}
+
+.answ-sect input {
+  padding: 0.6rem;
+  text-align: right;
+}
+
+/* SECTION.MSG-SECT */
+
+.msg-sect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  background: rgb(240, 240, 240);
+}
+
+/* SECTION.BTN-SECT */
+
+.arith-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.arith-btn button {
+  position: relative;
+}
+
+.key {
+  position: absolute;
+  color: rgba(255, 255, 255, 75%);
+  font-size: 1rem;
+  font-weight: lighter;
+  bottom: -8px;
+  right: 10px;
+}
+
+/***************************
+APPEARANCE: Colors, Fonts, Spacing
+***************************/
+
+/* body */
+body {
+  color: rgb(33, 33, 33);
+  font-family: var(--ff-p);
+  font-size: 1rem;
+}
+
+a:link,
+a:visited,
+a:hover {
+  color: var(--color-a);
+}
+
+/* header & footer */
+header,
+footer {
+  padding: 0.5rem;
+  background: linear-gradient(to bottom, #4cb880 0%, #2c9c88 100%);
+  color: white;
+  text-align: center;
+}
+footer p {
+  margin: 0;
+  font-size: smaller;
+}
+
+/* background: linear-gradient(to bottom, #c2f3b2 0%, #2c9c88 100%); */
+
+/* headings */
+
+h1 {
+  margin: 0;
+  font-family: var(--ff-a);
+  font-size: 2.8rem;
+}
+
+h2 {
+  margin: 0;
+  font-family: var(--ff-a);
+}
+
+/* button styles */
+
+.arith-btn button {
+  width: 100%;
+  max-width: 350px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  color: white;
+  font-family: var(--ff-a);
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+.arith-btn button:active {
+  transform: scale(0.98);
+}
+
+.btn--check button {
+  background: linear-gradient(to bottom, #f7ef98 0%, #cd851a 100%);
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px rgb(205, 205, 205);
+}
+.btn--show button {
+  background: linear-gradient(to bottom, #b2f3ef 0%, #2c6c9c 100%);
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px rgb(205, 205, 205);
+}
+.btn--next button {
+  background: linear-gradient(to bottom, #ffb7dc 0%, #d84136 100%);
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px rgb(205, 205, 205);
+}
+
+/* message styles */
+.msg-correct {
+  background: rgb(223, 243, 224);
+}
+.msg-wrong {
+  background: mistyrose;
+}
+
+/* aside#settings */
+
+#settings {
+  padding: 1rem 1.5rem;
+  background: var(--color-a);
+  position: relative;
+}
+
+#settings > div {
+  margin-bottom: 2rem;
+}
+#settings > div:last-of-type {
+  margin-bottom: 0;
+}
+
+.info-icon {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 0.85rem;
+  text-align: center;
+  color: white;
+  background: var(--color-p);
+  border-radius: 50%;
+  position: absolute;
+  top: 1rem;
+  left: 6px;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.small {
+  font-size: smaller;
+}
+
+.hidden {
+  display: none;
+}

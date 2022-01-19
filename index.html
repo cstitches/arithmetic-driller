@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arithmetic Driller</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/utilities/media-query-reporter.css" />
+    <script src="/js/script.js" defer></script>
+  </head>
+  <body>
+    <!------- HEADER ------->
+    <header>
+      <h1>Arithmetic Driller</h1>
+    </header>
+    <!------- MIDDLE > ARITH-PROB + SETTINGS ------->
+    <div id="middle">
+      <!------- MIDDLE > ARITH-PROB------->
+      <div id="arith-prob">
+        <!-- ARITH-PROB > PROB-ANSW-SECT -->
+        <section class="prob-answ-sect">
+          <!-- DIV.PROB-SECT > DIV.PROB--OP-SECT + DIV.PROB--NUM-SECT-->
+          <div class="prob-sect">
+            <div class="prob--op-sect">
+              <p id="prob--op">+</p>
+            </div>
+            <div class="prob--num-sect">
+              <p id="prob--num-0">15</p>
+              <p id="prob--num-1">5</p>
+            </div>
+          </div>
+          <!-- DIV.ANSW-SECT -->
+          <div class="answ-sect">
+            <input type="text" name="answ" id="answ-input" size="10" />
+          </div>
+        </section>
+        <!-- ARITH-PROB > MSG-SECT -->
+        <section class="msg-sect">
+          <p id="message"></p>
+        </section>
+        <!-- ARITH-PROB > BTN-SECT -->
+        <section class="btn-sect">
+          <div class="arith-btn btn--check">
+            <button id="btn-check">
+              ✏️ Check
+              <p class="key">[Enter]</p>
+            </button>
+          </div>
+          <div class="arith-btn btn--show">
+            <button id="btn-show">
+              📖 Show
+              <p class="key">[Shift]</p>
+            </button>
+          </div>
+          <div class="arith-btn btn--next">
+            <button id="btn-next">
+              ❤️‍🔥 Next
+              <p class="key">[Alt]</p>
+            </button>
+          </div>
+        </section>
+      </div>
+      <!------- MIDDLE > SETTINGS ------->
+      <aside id="settings">
+        <h2>Settings</h2>
+        <span class="info-icon">ℹ</span>
+        <div>
+          <h3>Operators</h3>
+          <input type="checkbox" name="add" id="check-add" />
+          <label for="add">Addition ( + )</label><br />
+          <input type="checkbox" name="sub" id="check-sub" />
+          <label for="sub">Subtraction ( − )</label><br />
+          <input type="checkbox" name="mul" id="check-mul" />
+          <label for="mul">Multiplication ( × )</label><br />
+          <input type="checkbox" name="div" id="check-div" />
+          <label for="div">Division ( ÷ )</label><br />
+          <input type="checkbox" name="mod" id="check-mod" />
+          <label for="mod">Remainder ( <span class="small">R</span> )</label>
+        </div>
+        <div>
+          <h3>Numbers</h3>
+          <!-- TODO: Get negative numbers and decimals working -->
+          <!-- <div>
+            <input type="checkbox" name="neg" id="neg" />
+            <label for="neg">Allow negative numbers</label>
+          </div>
+          <div>
+            <label for="dec">Decimal places:</label><br />
+            <input
+              type="number"
+              name="dec"
+              id="dec"
+              size="10"
+              min="0"
+              max="5"
+              value="0"
+            />
+          </div> -->
+          <div>
+            <p>First number value range:</p>
+            <label for="number--0-min">Min:</label><br />
+            <input
+              type="number"
+              name="number--0-min"
+              id="number--0-min"
+              size="10"
+              min="-1000000"
+              max="1000000"
+              value="0"
+            /><br />
+            <label for="number--0-max">Max:</label><br />
+            <input
+              type="number"
+              name="number--0-max"
+              id="number--0-max"
+              size="10"
+              min="-1000000"
+              max="1000000"
+              value="20"
+            />
+          </div>
+          <div>
+            <p>Second number value range:</p>
+            <label for="number--1-min">Min:</label><br />
+            <input
+              type="number"
+              name="number--1-min"
+              id="number--1-min"
+              size="10"
+              min="0"
+              max="1000000"
+              value="0"
+            /><br />
+            <label for="number--1-max">Max:</label><br />
+            <input
+              type="number"
+              name="number--1-max"
+              id="number--1-max"
+              size="10"
+              min="0"
+              max="1000000"
+              value="20"
+            />
+          </div>
+        </div>
+        <!-- TODO: When score keeping implemented, then add reset button -->
+        <!-- <div>
+          <button id="check" class="btn">Reset</button>
+        </div> -->
+      </aside>
+      <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h2>Settings Info</h2>
+        <h3>Operators</h3>
+        <p>Use checkboxes to select which operations will be generated.</p>
+        <p>
+          Subtraction, division, and remainder problems always have the larger
+          number on top.
+        </p>
+        <p>
+          Division and remainder problems will ask for integers (whole numbers),
+          not any decimal values.
+        </p>
+        <h3>Numbers</h3>
+        <p>Minimums restricted to 0.</p>
+        <p>Maximums restricted to 1000000 (1 million).</p>
+        <p>
+          At this time, negative numbers and decimals are not supported (but
+          will be in the future!).
+        </p>
+      </div>
+      <div class="overlay hidden"></div>
+    </div>
+    <!------- FOOTER ------->
+    <footer>
+      <p>
+        &copy; 2022 | From the 🤔 ❤️ ✋ of
+        <a href="https://github.com/cstitches">cstitches</a>
+      </p>
+    </footer>
+  </body>
+</html>

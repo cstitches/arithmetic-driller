@@ -1,8 +1,10 @@
-# Arithmetic Driller
+# Arithmetic Driller v1
 
 [LIVE PREVIEW](https://cstitches.github.io/arithmetic-driller/)
 
 A random arithmetic problem generator for practicing mental math that generates problems based on user settings.
+
+This is v1, basic core functionality in place, but lots of fine-tuning still to do.
 
 ## Features
 
@@ -12,11 +14,15 @@ A random arithmetic problem generator for practicing mental math that generates 
 
 ## Known Issues
 
-- Min/max number values not respected by inputs and not handled in functionality
-- Not yet responsive
+- Not yet responsive (coming next!)
+- Input controls needed for non-numeric input
+- Input controls needed for handling max < min with number ranges
+- Some issues with keyboard controls
+- Not yet browser & OS compatibility tested
 
 ## Future Development
 
+- Keyboard controls for operators
 - Better optimization for drilling speed
 - Support for negative numbers
 - Support for decimals

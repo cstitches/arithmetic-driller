@@ -90,6 +90,7 @@ modalOverlay.addEventListener("click", closeModal);
 function getNewProblem() {
   initialize();
   checkCheckboxes();
+  checkRanges();
   // store operator & number values
   arithOp = getRandomOperator();
   arithNum0 = getRandomNumber(num0Min.value, num0Max.value);
@@ -133,7 +134,6 @@ function solveProblem(op, num0, num1) {
   if (op === "×") probAnswer = num0 * num1;
   // removes divide by 0
   if ((op === "÷" && num0 === 0) || num1 === 0) {
-    console.log(num0, num1);
     getNewProblem();
   }
   //   } else {
@@ -200,7 +200,7 @@ function showAnswer() {
   messageEl.classList.add("msg-correct");
 }
 
-// FUNCTION: CHECK CHECKBOXES
+// FUNCTION: CHECK CHECKBOXES --------------------
 // If all are unchecked, 'addition' is automatically checked
 
 function checkCheckboxes() {
@@ -215,7 +215,16 @@ function checkCheckboxes() {
   }
 }
 
-// FUNCTION: GENERATE RANDOM OPERATOR FROM CHECKED
+// FUNCTION: CHECK RANGES --------------------
+// TODO: Make this actually work
+function checkRanges() {
+  if (num0Min.value > num0Max.value || num1Min.value > num1Max.value) {
+    message.textContent =
+      "Minimum numbers are larger than maximums. Please fix.";
+  }
+}
+
+// FUNCTION: GENERATE RANDOM OPERATOR FROM CHECKED --------------------
 
 function getRandomOperator() {
   let checkedOps = [];

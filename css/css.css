@@ -67,6 +67,10 @@ UTILITY CLASSES
   display: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .small {
   font-size: smaller;
 }
@@ -110,6 +114,7 @@ h2 {
 /* INPUT FOCUS */
 
 input {
+  padding: 0.2rem;
   border-radius: 5px;
   font-weight: 300;
   border: 2px solid #4cb880;
@@ -197,6 +202,7 @@ EQUATION
 }
 
 #answ-input {
+  padding: 0.3rem;
   border: 2px solid #4cb880;
   background: var(--color-a);
 }
@@ -212,8 +218,9 @@ FEEDBACK MESSAGE
 ***************************/
 
 .arith-msg {
-  width: 100%;
+  /* width: 100%; */
   margin: 3rem 0;
+  padding: 2rem 1rem;
   font-size: 1.3rem;
   text-align: center;
 }
@@ -223,10 +230,13 @@ FEEDBACK MESSAGE
 }
 
 .msg-correct {
-  background: var(--color-a);
+  color: #cd851a;
 }
 .msg-wrong {
-  background: mistyrose;
+  color: #d84136;
+}
+.msg-show {
+  color: #2c6c9c;
 }
 
 /***************************

@@ -56,10 +56,12 @@ function initialize() {
   answShown = false;
   attempts = 0;
   inputAnsw.value = "";
-  message.textContent = "";
+  message.textContent = "Yo";
+  message.classList.add("invisible");
   // remove correct/wrong color from messageEl
   elMsg.classList.remove("msg-wrong");
   elMsg.classList.remove("msg-correct");
+  elMsg.classList.remove("msg-show");
   // generate new problem
   newProblem();
 }
@@ -86,6 +88,12 @@ info.addEventListener("click", function () {
 });
 modalClose.addEventListener("click", closeModal);
 modalOverlay.addEventListener("click", closeModal);
+
+// FUNCTION: MAKE MESSAGE VISIBLE
+
+function makeMsgVis() {
+  message.classList.remove("invisible");
+}
 
 // FUNCTION: GENERATE NEW PROBLEM --------------------
 
@@ -163,30 +171,43 @@ function solveProblem(op, num0, num1) {
 function checkAnswer() {
   if (answShown === false) {
     if (!inputAnsw.value) {
-      message.textContent = "No answer, try again";
+      elMsg.classList.remove("msg-correct");
+      elMsg.classList.remove("msg-show");
       elMsg.classList.add("msg-wrong");
+      message.textContent = "❌ No answer, try again";
+      makeMsgVis();
     } else {
       answer = Number(inputAnsw.value);
       if (isNaN(answer) === true) {
-        message.textContent = "Not a valid answer, try again";
+        message.textContent = "❌ Not a valid answer, try again";
+        elMsg.classList.remove("msg-correct");
+        elMsg.classList.remove("msg-show");
         elMsg.classList.add("msg-wrong");
+        makeMsgVis();
       } else if (answer === solution) {
-        message.textContent = `Correct! The answer is ${solution}`;
+        message.textContent = `👍 Correct! The answer is ${solution}`;
         elMsg.classList.remove("msg-wrong");
+        elMsg.classList.remove("msg-show");
         elMsg.classList.add("msg-correct");
+        makeMsgVis();
       } else {
         attempts++;
         if (attempts > 1) {
-          message.textContent = `Wrong, try again! ${attempts} attempts`;
+          message.textContent = `Incorrect, try again! (${attempts} attempts)`;
         } else {
-          message.textContent = `Wrong, try again! ${attempts} attempt`;
+          message.textContent = `Incorrect, try again! (${attempts} attempt)`;
+          elMsg.classList.remove("msg-correct");
+          elMsg.classList.remove("msg-show");
           elMsg.classList.add("msg-wrong");
+          makeMsgVis();
         }
       }
     }
   } else {
-    message.textContent = "You've seen the answer. Choose NEXT!";
+    elMsg.classList.remove("msg-correct");
+    elMsg.classList.remove("msg-show");
     elMsg.classList.add("msg-wrong");
+    message.textContent = "❌ You've seen the answer. Choose NEXT!";
   }
 }
 
@@ -194,9 +215,11 @@ function checkAnswer() {
 
 function showAnswer() {
   answShown = true;
-  message.textContent = `The answer is: ${solution}`;
   elMsg.classList.remove("msg-wrong");
-  elMsg.classList.add("msg-correct");
+  elMsg.classList.remove("msg-correct");
+  elMsg.classList.add("msg-show");
+  message.textContent = `The answer is ${solution}`;
+  makeMsgVis();
 }
 
 // FUNCTION: GENERATE RANDOM OPERATOR FROM CHECKED

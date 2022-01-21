@@ -56,7 +56,7 @@ function initialize() {
   answShown = false;
   attempts = 0;
   inputAnsw.value = "";
-  message.textContent = "Enter your answer above";
+  message.textContent = "";
   // remove correct/wrong color from messageEl
   elMsg.classList.remove("msg-wrong");
   elMsg.classList.remove("msg-correct");

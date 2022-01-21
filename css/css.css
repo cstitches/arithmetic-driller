@@ -21,7 +21,7 @@ MEDIA QUERY - LG - 875px+
 FONT IMPORT
 ***************************/
 
-@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Karla&family=Mochiy+Pop+P+One&family=Nunito&family=Oswald:wght@300&family=Poppins&family=Quicksand&family=Righteous&family=Rubik&family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Karla&family=Mochiy+Pop+P+One&family=Nunito&family=Oswald:wght@300&family=Poppins&family=Quicksand&family=Righteous&family=Rubik:wght@300;400&family=Staatliches&display=swap");
 
 /* 
 
@@ -56,7 +56,7 @@ CUSTOM PROPERTIES
 :root {
   --color-p: #2c9c88;
   --color-a: rgb(237, 249, 238);
-  --ff-p: "Nunito", sans-serif;
+  --ff-p: "Rubik", sans-serif;
   --ff-a: "Staatliches", cursive;
 }
 
@@ -91,6 +91,7 @@ PAGE STYLES
 body {
   color: #333;
   font-family: var(--ff-p);
+  font-weight: 300;
 }
 
 a:link,
@@ -104,6 +105,19 @@ a:hover {
 h1,
 h2 {
   margin: 0;
+}
+
+/* INPUT FOCUS */
+
+input {
+  border-radius: 5px;
+  font-weight: 300;
+  border: 2px solid #4cb880;
+  -moz-appearance: textfield;
+}
+input:focus {
+  outline: 2px solid var(--color-p);
+  -moz-appearance: none;
 }
 
 /***************************
@@ -187,9 +201,10 @@ EQUATION
   background: var(--color-a);
 }
 
-#answ-input:focus {
-  outline: 2px solid var(--color-p);
-  border: 2px solid #4cb880;
+#answ-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 2rem;
 }
 
 /***************************
@@ -283,6 +298,11 @@ SETTINGS
   margin: 0 auto;
 }
 
+#settings input {
+  border: 1px solid #4cb880;
+  border-radius: 3px;
+}
+
 /***************************
 INFO ICON & MODAL
 ***************************/
@@ -355,6 +375,11 @@ footer {
   color: white;
   text-align: center;
 }
+
+header {
+  box-shadow: 0px 14px 10px -12px rgba(76, 184, 128, 0.5);
+}
+
 footer p {
   margin: 0;
   font-size: smaller;
@@ -386,6 +411,16 @@ MEDIA QUERY - XS - sub 375px;
 }
 
 /***************************
+MEDIA QUERY - MD - 625-875px
+***************************/
+
+@media only screen and (min-width: 625px) and (max-width: 875px) {
+  .btn {
+    font-size: 2.15rem;
+  }
+}
+
+/***************************
 MEDIA QUERY - LG - 875+
 ***************************/
 
@@ -404,6 +439,10 @@ MEDIA QUERY - LG - 875+
 
   .arith-msg {
     font-size: 1.75rem;
+  }
+
+  .btn {
+    font-size: 2.5rem;
   }
 
   #settings {

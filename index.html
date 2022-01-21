@@ -8,42 +8,34 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/utilities/media-query-reporter.css" />
-    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="css/css.css" />
+    <!-- <link rel="stylesheet" href="/utilities/media-query-reporter.css" /> -->
+    <!-- <script src="/js/script.js" defer></script> -->
   </head>
   <body>
-    <!------- HEADER ------->
+    <!------- 1 HEADER ------->
     <header>
       <h1>Arithmetic Driller</h1>
     </header>
-    <!------- MIDDLE > ARITH-PROB + SETTINGS ------->
-    <div id="middle">
-      <!------- MIDDLE > ARITH-PROB------->
-      <div id="arith-prob">
-        <!-- ARITH-PROB > PROB-ANSW-SECT -->
-        <section class="prob-answ-sect">
-          <!-- DIV.PROB-SECT > DIV.PROB--OP-SECT + DIV.PROB--NUM-SECT-->
-          <div class="prob-sect">
-            <div class="prob--op-sect">
-              <p id="prob--op">+</p>
-            </div>
-            <div class="prob--num-sect">
-              <p id="prob--num-0">15</p>
-              <p id="prob--num-1">5</p>
-            </div>
-          </div>
-          <!-- DIV.ANSW-SECT -->
-          <div class="answ-sect">
-            <input type="text" name="answ" id="answ-input" size="10" />
-          </div>
+
+    <!------- 1 MIDDLE > ARITH-MAIN + SETTINGS ------->
+    <section id="middle">
+      <!------- 2 ARITH-MAIN ------->
+      <div id="arith-main">
+        <!-- 3 equation-comp -->
+        <section class="equation stacked">
+          <span class="number" id="num1">15</span>
+          <span class="operator">+</span>
+          <span class="number" id="num2">5</span>
+          <span class="equals"></span>
+          <input type="text" class="number" name="answ" id="answ-input" size="10" />
         </section>
-        <!-- ARITH-PROB > MSG-SECT -->
-        <section class="msg-sect">
+        <!-- 3 ARITH--MSG -->
+        <section class="arith--msg">
           <p id="message"></p>
         </section>
-        <!-- ARITH-PROB > BTN-SECT -->
-        <section class="btn-sect">
+        <!-- 3 ARITH--BTNS -->
+        <section class="arith--btns">
           <div class="arith-btn btn--check">
             <button id="btn-check">
               ✏️ Check
@@ -64,7 +56,9 @@
           </div>
         </section>
       </div>
-      <!------- MIDDLE > SETTINGS ------->
+      </section>
+
+      <!------- 2 SETTINGS ------->
       <aside id="settings">
         <h2>Settings</h2>
         <span class="info-icon">ℹ</span>
@@ -175,7 +169,8 @@
       </div>
       <div class="overlay hidden"></div>
     </div>
-    <!------- FOOTER ------->
+
+    <!------- 1 FOOTER ------->
     <footer>
       <p>
         &copy; 2022 | From the 🤔 ❤️ ✋ of

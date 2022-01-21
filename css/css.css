@@ -1,0 +1,145 @@
+/***************************
+UNIVERSAL BORDER-BOX
+***************************/
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; /* enables smooth scrolling */
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/***************************
+FONT IMPORT
+***************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Nunito&family=Righteous&family=Staatliches&display=swap");
+
+/***************************
+CUSTOM PROPERTIES
+
+-p = primary
+-a = accent
+***************************/
+:root {
+  --color-p: #2c9c88;
+  --color-a: rgb(237, 249, 238);
+  --ff-p: "Nunito", sans-serif;
+  --ff-a: "Staatliches", cursive;
+}
+
+/***************************
+UTILITY CLASSES
+***************************/
+.hidden {
+  display: none;
+}
+
+/***************************
+MAIN LAYOUT w/ FLEX
+
+body
+-1 header
+-1 div#middle
+--2 section#arith-main
+--2 section#settings
+-1 footer
+
+2 section#arith-main
+-3 section.arith--prob-answ
+-3 section.arith--msg
+-3 section.arith--btns
+2 aside#settings (mobile: under; desktop: right side)
+
+3 section.arith--prob-answ
+-4 div.arith-prob (num0, num1, op, equals)
+-4 div.arith-answ (input#answ-input)
+
+***************************/
+
+/* Situates header, #middle, footer */
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Situates #arith-main and #settings */
+#middle {
+  display: flex;
+  flex-direction: column;
+}
+
+#arith-main {
+  order: 0;
+}
+
+#settings {
+  order: 1;
+}
+
+/***************************
+COMPONENTS
+***************************/
+
+/* section.equation*/
+
+.equation.stacked {
+  background: coral;
+  display: inline-block;
+}
+
+.equation.stacked .number {
+  display: block;
+  margin-left: 1em;
+  text-align: right;
+}
+
+.equation.stacked .operator {
+  float: left;
+  text-align: right;
+}
+
+.equation.stacked .equals {
+  display: block;
+  height: 0;
+  border-bottom: solid 1px black;
+  overflow: hidden;
+}
+
+/***************************
+APPEARANCE
+***************************/
+
+/***************************
+TABLET 400px - 1024px
+***************************/
+
+@media only screen and (min-width: 401px) and (max-width: 1024px) {
+}
+
+/***************************
+DESKTOP 1024px+
+***************************/
+
+@media only screen and (min-width: 1024px) {
+  #middle {
+    flex-direction: column;
+  }
+
+  #arith-main {
+    flex: 1;
+  }
+
+  #settings {
+    min-width: fit-content;
+  }
+}

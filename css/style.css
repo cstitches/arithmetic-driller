@@ -66,7 +66,7 @@ body {
   display: flex;
 }
 
-#arith-prob {
+#arith-main {
   flex: 1;
 }
 
@@ -83,17 +83,17 @@ section.msg-sect
 section.btn-sect
 ***************************/
 
-#arith-prob {
+#arith-main {
   display: flex;
   flex-direction: column;
 }
 
-#arith-prob > section {
+#arith-main > section {
   margin-bottom: 2rem;
   padding: 0.5rem;
 }
 
-#arith-prob > section:last-child {
+#arith-main > section:last-child {
   margin-bottom: 0.5rem;
 }
 

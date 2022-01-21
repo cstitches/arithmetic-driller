@@ -12,7 +12,7 @@
     <!-- <link rel="stylesheet" href="/utilities/media-query-reporter.css" /> -->
     <!-- <script src="/js/script.js" defer></script> -->
   </head>
-  <body>
+  <body class="flex-col">
     <!------- 1 HEADER ------->
     <header>
       <h1>Arithmetic Driller</h1>
@@ -21,159 +21,157 @@
     <!------- 1 MIDDLE > ARITH-MAIN + SETTINGS ------->
     <section id="middle">
       <!------- 2 ARITH-MAIN ------->
-      <div id="arith-main">
-        <!-- 3 equation-comp -->
+      <section id="arith-main">
+        <!-- 3 EQUATION-COMP -->
         <section class="equation stacked">
-          <span class="number" id="num1">15</span>
-          <span class="operator">+</span>
-          <span class="number" id="num2">5</span>
-          <span class="equals"></span>
-          <input type="text" class="number" name="answ" id="answ-input" size="10" />
+          <span class="equation-prob">
+            <span class="number" id="num1">1500000</span>
+            <span class="operator">+</span>
+            <span class="number" id="num2">5</span>
+          </span>
+          <span class="equals">=</span>
+          <input
+            type="number"
+            class="number"
+            name="answ"
+            id="answ-input"
+            size="5"
+          />
         </section>
-        <!-- 3 ARITH--MSG -->
-        <section class="arith--msg">
-          <p id="message"></p>
+        <!-- 3 ARITH-MSG -->
+        <section class="arith-msg">
+          <p id="message">Correct / Wrong</p>
         </section>
-        <!-- 3 ARITH--BTNS -->
-        <section class="arith--btns">
-          <div class="arith-btn btn--check">
-            <button id="btn-check">
-              ✏️ Check
-              <p class="key">[Enter]</p>
-            </button>
-          </div>
-          <div class="arith-btn btn--show">
-            <button id="btn-show">
-              📖 Show
-              <p class="key">[Shift]</p>
-            </button>
-          </div>
-          <div class="arith-btn btn--next">
-            <button id="btn-next">
-              ❤️‍🔥 Next
-              <p class="key">[Alt]</p>
-            </button>
-          </div>
+        <!-- 3 ARITH-BTNS -->
+        <section class="arith-btns">
+          <button class="btn btn-check">✏️ Check</button>
+          <button class="btn btn-show">📖 Show</button>
+          <button class="btn btn-next">❤️‍🔥 Next</button>
         </section>
-      </div>
       </section>
 
       <!------- 2 SETTINGS ------->
       <aside id="settings">
-        <h2>Settings</h2>
-        <span class="info-icon">ℹ</span>
         <div>
-          <h3>Operators</h3>
-          <input type="checkbox" name="add" id="check-add" />
-          <label for="add">Addition ( + )</label><br />
-          <input type="checkbox" name="sub" id="check-sub" />
-          <label for="sub">Subtraction ( − )</label><br />
-          <input type="checkbox" name="mul" id="check-mul" />
-          <label for="mul">Multiplication ( × )</label><br />
-          <input type="checkbox" name="div" id="check-div" />
-          <label for="div">Division ( ÷ )</label><br />
-          <input type="checkbox" name="mod" id="check-mod" />
-          <label for="mod">Remainder ( <span class="small">R</span> )</label>
+          <h2>Settings<span class="info-icon">ℹ</span></h2>
         </div>
         <div>
-          <h3>Numbers</h3>
-          <!-- TODO: Get negative numbers and decimals working -->
-          <!-- <div>
-            <input type="checkbox" name="neg" id="neg" />
-            <label for="neg">Allow negative numbers</label>
+          <div>
+            <h3>Operators</h3>
+            <div class="heading-line"></div>
+            <input type="checkbox" name="add" id="check-add" />
+            <label for="add">Addition ( + )</label><br />
+            <input type="checkbox" name="sub" id="check-sub" />
+            <label for="sub">Subtraction ( − )</label><br />
+            <input type="checkbox" name="mul" id="check-mul" />
+            <label for="mul">Multiplication ( × )</label><br />
+            <input type="checkbox" name="div" id="check-div" />
+            <label for="div">Division ( ÷ )</label><br />
+            <input type="checkbox" name="mod" id="check-mod" />
+            <label for="mod">Remainder ( <span class="small">R</span> )</label>
           </div>
           <div>
-            <label for="dec">Decimal places:</label><br />
-            <input
-              type="number"
-              name="dec"
-              id="dec"
-              size="10"
-              min="0"
-              max="5"
-              value="0"
-            />
-          </div> -->
-          <div>
-            <p>First number value range:</p>
-            <label for="number--0-min">Min:</label><br />
-            <input
-              type="number"
-              name="number--0-min"
-              id="number--0-min"
-              size="10"
-              min="0"
-              max="1000000"
-              value="0"
-            /><br />
-            <label for="number--0-max">Max:</label><br />
-            <input
-              type="number"
-              name="number--0-max"
-              id="number--0-max"
-              size="10"
-              min="0"
-              max="1000000"
-              value="20"
-            />
-          </div>
-          <div>
-            <p>Second number value range:</p>
-            <label for="number--1-min">Min:</label><br />
-            <input
-              type="number"
-              name="number--1-min"
-              id="number--1-min"
-              size="10"
-              min="0"
-              max="1000000"
-              value="0"
-            /><br />
-            <label for="number--1-max">Max:</label><br />
-            <input
-              type="number"
-              name="number--1-max"
-              id="number--1-max"
-              size="10"
-              min="0"
-              max="1000000"
-              value="20"
-            />
+            <h3>Numbers</h3>
+            <!-- TODO: Get negative numbers and decimals working -->
+            <!-- <div>
+              <input type="checkbox" name="neg" id="neg" />
+              <label for="neg">Allow negative numbers</label>
+            </div>
+            <div>
+              <label for="dec">Decimal places:</label><br />
+              <input
+                type="number"
+                name="dec"
+                id="dec"
+                size="10"
+                min="0"
+                max="5"
+                value="0"
+              />
+            </div> -->
+            <div>
+              <p>First number value range:</p>
+              <label for="number--0-min">Min:</label><br />
+              <input
+                type="number"
+                name="number--0-min"
+                id="number--0-min"
+                size="10"
+                min="0"
+                max="1000000"
+                value="0"
+              /><br />
+              <label for="number--0-max">Max:</label><br />
+              <input
+                type="number"
+                name="number--0-max"
+                id="number--0-max"
+                size="10"
+                min="0"
+                max="1000000"
+                value="20"
+              />
+            </div>
+            <div>
+              <p>Second number value range:</p>
+              <label for="number--1-min">Min:</label><br />
+              <input
+                type="number"
+                name="number--1-min"
+                id="number--1-min"
+                size="10"
+                min="0"
+                max="1000000"
+                value="0"
+              /><br />
+              <label for="number--1-max">Max:</label><br />
+              <input
+                type="number"
+                name="number--1-max"
+                id="number--1-max"
+                size="10"
+                min="0"
+                max="1000000"
+                value="20"
+              />
+            </div>
           </div>
         </div>
         <!-- TODO: When score keeping implemented, then add reset button -->
         <!-- <div>
           <button id="check" class="btn">Reset</button>
         </div> -->
+        <!-- SETTINGS INFO MODAL & OVERLAY -->
+
+        <div class="modal hidden">
+          <button class="close-modal">&times;</button>
+          <h2>Settings Info</h2>
+          <h3>Operators</h3>
+          <p>Use checkboxes to select which operations will be generated.</p>
+          <p>
+            Subtraction, division, and remainder problems always have the larger
+            number on top.
+          </p>
+          <p>
+            Division and remainder problems will ask for integers (whole
+            numbers), not any decimal values.
+          </p>
+          <h3>Numbers</h3>
+          <p>Minimums restricted to 0.</p>
+          <p>Maximums restricted to 1000000 (1 million).</p>
+          <p>
+            At this time, negative numbers and decimals are not supported (but
+            will be in the future!).
+          </p>
+        </div>
+        <div class="overlay hidden"></div>
       </aside>
-      <div class="modal hidden">
-        <button class="close-modal">&times;</button>
-        <h2>Settings Info</h2>
-        <h3>Operators</h3>
-        <p>Use checkboxes to select which operations will be generated.</p>
-        <p>
-          Subtraction, division, and remainder problems always have the larger
-          number on top.
-        </p>
-        <p>
-          Division and remainder problems will ask for integers (whole numbers),
-          not any decimal values.
-        </p>
-        <h3>Numbers</h3>
-        <p>Minimums restricted to 0.</p>
-        <p>Maximums restricted to 1000000 (1 million).</p>
-        <p>
-          At this time, negative numbers and decimals are not supported (but
-          will be in the future!).
-        </p>
-      </div>
-      <div class="overlay hidden"></div>
-    </div>
+    </section>
 
     <!------- 1 FOOTER ------->
     <footer>
       <p>
-        &copy; 2022 | From the 🤔 ❤️ ✋ of
+        © 2022 ✦ From the 🤔 ❤️ ✋ of
         <a href="https://github.com/cstitches">cstitches</a>
       </p>
     </footer>

@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="css/css.css" />
     <!-- <link rel="stylesheet" href="/utilities/media-query-reporter.css" /> -->
-    <!-- <script src="/js/script.js" defer></script> -->
+    <script src="/js/script.js" defer></script>
   </head>
   <body class="flex-col">
     <!------- 1 HEADER ------->
@@ -26,7 +26,7 @@
         <section class="equation stacked">
           <span class="equation-prob">
             <span class="number" id="num1">1500000</span>
-            <span class="operator">+</span>
+            <span class="operator" id="op">+</span>
             <span class="number" id="num2">5</span>
           </span>
           <span class="equals">=</span>
@@ -91,21 +91,21 @@
             </div> -->
             <div>
               <p>First number value range:</p>
-              <label for="number--0-min">Min:</label><br />
+              <label for="num1-min">Min:</label><br />
               <input
                 type="number"
-                name="number--0-min"
-                id="number--0-min"
+                name="num1-min"
+                id="num1-min"
                 size="10"
                 min="0"
                 max="1000000"
                 value="0"
               /><br />
-              <label for="number--0-max">Max:</label><br />
+              <label for="num1-max">Max:</label><br />
               <input
                 type="number"
-                name="number--0-max"
-                id="number--0-max"
+                name="num1-max"
+                id="num1-max"
                 size="10"
                 min="0"
                 max="1000000"
@@ -114,21 +114,21 @@
             </div>
             <div>
               <p>Second number value range:</p>
-              <label for="number--1-min">Min:</label><br />
+              <label for="num2-min">Min:</label><br />
               <input
                 type="number"
-                name="number--1-min"
-                id="number--1-min"
+                name="num2-min"
+                id="num2-min"
                 size="10"
                 min="0"
                 max="1000000"
                 value="0"
               /><br />
-              <label for="number--1-max">Max:</label><br />
+              <label for="num2-max">Max:</label><br />
               <input
                 type="number"
-                name="number--1-max"
-                id="number--1-max"
+                name="num2-max"
+                id="num2-max"
                 size="10"
                 min="0"
                 max="1000000"

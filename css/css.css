@@ -112,9 +112,12 @@ PAGE LAYOUT
 
 body {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #middle {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -195,9 +198,7 @@ FEEDBACK MESSAGE
 
 .arith-msg {
   width: 100%;
-  margin: 1rem 0;
-  padding: 1.25rem 0.5rem;
-  /* background: rgb(240, 240, 240); */
+  margin: 3rem 0;
   font-size: 1.3rem;
   text-align: center;
 }

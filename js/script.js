@@ -49,7 +49,7 @@ let isShown;
 
 // INITIALIZATION --------------------
 
-getNewProblem();
+initialize();
 
 function initialize() {
   // reset initial values
@@ -60,6 +60,8 @@ function initialize() {
   // remove correct/wrong color from messageEl
   messageEl.classList.remove("msg-wrong");
   messageEl.classList.remove("msg-correct");
+  // generate new problem
+  newProblem();
 }
 
 // KEYBOARD SHORTCUTS --------------------
@@ -67,7 +69,7 @@ function initialize() {
 document.addEventListener("keydown", function (e) {
   if (e.key === "Enter") checkAnswer();
   if (e.key === "Shift") showAnswer();
-  if (e.key === "Alt") getNewProblem();
+  if (e.key === "Alt") newProblem();
   if (e.key === "Escape") closeModal();
 });
 
@@ -75,7 +77,7 @@ document.addEventListener("keydown", function (e) {
 
 btnCheck.addEventListener("click", checkAnswer);
 btnShow.addEventListener("click", showAnswer);
-btnNext.addEventListener("click", getNewProblem);
+btnNext.addEventListener("click", newProblem);
 
 // modals events
 info.addEventListener("click", function () {
@@ -87,13 +89,12 @@ modalOverlay.addEventListener("click", closeModal);
 
 // FUNCTION: GENERATE NEW PROBLEM --------------------
 
-function getNewProblem() {
+function newProblem() {
   initialize();
-  checkCheckboxes();
   // store operator & number values
-  arithOp = getRandomOperator();
-  arithNum0 = getRandomNumber(num0Min.value, num0Max.value);
-  arithNum1 = getRandomNumber(num1Min.value, num1Max.value);
+  arithOp = newRandomOperator();
+  arithNum0 = newRandomNumber(num0Min.value, num0Max.value);
+  arithNum1 = newRandomNumber(num1Min.value, num1Max.value);
   // display operator & number values
   if (arithOp === "R") {
     arithOpEl.textContent = arithOp;
@@ -110,7 +111,7 @@ function getNewProblem() {
 
 // FUNCTION: GENERATE RANDOM NUMBER--------------------
 
-function getRandomNumber(min, max) {
+function newRandomNumber(min, max) {
   // FIX: Trying to control negative min values
   //   min = Number(min);
   //   max = Number(min);
@@ -134,7 +135,7 @@ function solveProblem(op, num0, num1) {
   // removes divide by 0
   if ((op === "÷" && num0 === 0) || num1 === 0) {
     console.log(num0, num1);
-    getNewProblem();
+    newProblem();
   }
   //   } else {
   //     probAnswer = probAnswer = Math.floor(num0 / num1);
@@ -200,6 +201,20 @@ function showAnswer() {
   messageEl.classList.add("msg-correct");
 }
 
+// FUNCTION: GENERATE RANDOM OPERATOR FROM CHECKED
+
+function newRandomOperator() {
+  checkCheckboxes();
+  let checkedOps = [];
+  if (checkAdd.checked === true) checkedOps.push("+");
+  if (checkSub.checked === true) checkedOps.push("−");
+  if (checkMul.checked === true) checkedOps.push("×");
+  if (checkDiv.checked === true) checkedOps.push("÷");
+  if (checkMod.checked === true) checkedOps.push("R");
+  arithOp = checkedOps[Math.floor(Math.random() * checkedOps.length)];
+  return arithOp;
+}
+
 // FUNCTION: CHECK CHECKBOXES
 // If all are unchecked, 'addition' is automatically checked
 
@@ -213,19 +228,6 @@ function checkCheckboxes() {
   ) {
     checkAdd.checked = true;
   }
-}
-
-// FUNCTION: GENERATE RANDOM OPERATOR FROM CHECKED
-
-function getRandomOperator() {
-  let checkedOps = [];
-  if (checkAdd.checked === true) checkedOps.push("+");
-  if (checkSub.checked === true) checkedOps.push("−");
-  if (checkMul.checked === true) checkedOps.push("×");
-  if (checkDiv.checked === true) checkedOps.push("÷");
-  if (checkMod.checked === true) checkedOps.push("R");
-  arithOp = checkedOps[Math.floor(Math.random() * checkedOps.length)];
-  return arithOp;
 }
 
 // FUNCTION: CLOSE MODAL --------------------

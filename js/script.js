@@ -90,7 +90,6 @@ modalOverlay.addEventListener("click", closeModal);
 // FUNCTION: GENERATE NEW PROBLEM --------------------
 
 function newProblem() {
-  initialize();
   // store operator & number values
   arithOp = newRandomOperator();
   arithNum0 = newRandomNumber(num0Min.value, num0Max.value);

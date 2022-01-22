@@ -169,7 +169,7 @@ function correctInvalidNumInput(min, max) {
   if (min.value > max.value) min.value = max.value;
   // if values less than 0, change to 0
   if (min.value < 0) min.value = 0;
-  if (max.value < 0) max.value = 0;
+  if (max.value < 0) max.value = 1;
 }
 
 //=============================================

@@ -29,6 +29,12 @@ const num1Min = document.getElementById("num1-min");
 const num1Max = document.getElementById("num1-max");
 const num2Min = document.getElementById("num2-min");
 const num2Max = document.getElementById("num2-max");
+//Number range sliders
+const num1MinRange = document.getElementById("num1-min-range");
+const num1MaxRange = document.getElementById("num1-max-range");
+// const num2MinRange = document.getElementById("num2-min-range");
+// const num2MaxRange = document.getElementById("num2-max-range");
+// console.log(num1MinRange, num1MaxRange, num2MinRange, num2MaxRange);
 // Decimal input
 const decimal = document.getElementById("dec");
 // Modal
@@ -185,7 +191,7 @@ function checkAnswer() {
         elMsg.classList.add("msg-wrong");
         makeMsgVis();
       } else if (answer === solution) {
-        message.textContent = `👍 Correct! The answer is ${solution}`;
+        message.textContent = `👍 Correct!`;
         elMsg.classList.remove("msg-wrong");
         elMsg.classList.remove("msg-show");
         elMsg.classList.add("msg-correct");
@@ -193,9 +199,9 @@ function checkAnswer() {
       } else {
         attempts++;
         if (attempts > 1) {
-          message.textContent = `Incorrect, try again! (${attempts} attempts)`;
+          message.textContent = `Incorrect (${attempts} attempts)`;
         } else {
-          message.textContent = `Incorrect, try again! (${attempts} attempt)`;
+          message.textContent = `Incorrect (${attempts} attempt)`;
           elMsg.classList.remove("msg-correct");
           elMsg.classList.remove("msg-show");
           elMsg.classList.add("msg-wrong");
@@ -207,7 +213,7 @@ function checkAnswer() {
     elMsg.classList.remove("msg-correct");
     elMsg.classList.remove("msg-show");
     elMsg.classList.add("msg-wrong");
-    message.textContent = "❌ You've seen the answer. Choose NEXT!";
+    message.textContent = "❌ You've seen the answer.";
   }
 }
 
@@ -218,7 +224,7 @@ function showAnswer() {
   elMsg.classList.remove("msg-wrong");
   elMsg.classList.remove("msg-correct");
   elMsg.classList.add("msg-show");
-  message.textContent = `The answer is ${solution}`;
+  message.textContent = `${solution}`;
   makeMsgVis();
 }
 

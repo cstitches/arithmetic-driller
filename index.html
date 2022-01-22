@@ -74,70 +74,67 @@
           <div>
             <h3>Numbers</h3>
             <!-- TODO: Get negative numbers and decimals working -->
-            <!-- <div>
-              <input type="checkbox" name="neg" id="neg" />
-              <label for="neg">Allow negative numbers</label>
+            <div id="num1-range">
+              <h4>First number value range</h4>
+              <div class="range-inputs">
+                <div class="range-field">
+                  <label for="num1-min">Min</label>
+                  <input
+                    type="number"
+                    name="num1-min"
+                    id="num1-min"
+                    size="8"
+                    min="0"
+                    max="10000"
+                    value="0"
+                  />
+                </div>
+                <div class="range-field">–</div>
+                <div class="range-field">
+                  <label for="num1-max">Max</label>
+                  <input
+                    type="number"
+                    name="num1-max"
+                    id="num1-max"
+                    size="8"
+                    min="0"
+                    max="10000"
+                    value="0"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label for="dec">Decimal places:</label><br />
-              <input
-                type="number"
-                name="dec"
-                id="dec"
-                size="10"
-                min="0"
-                max="5"
-                value="0"
-              />
-            </div> -->
-            <div>
-              <p>First number value range:</p>
-              <label for="num1-min">Min:</label><br />
-              <input
-                type="number"
-                name="num1-min"
-                id="num1-min"
-                size="10"
-                min="0"
-                max="1000000"
-                value="0"
-              /><br />
-              <label for="num1-max">Max:</label><br />
-              <input
-                type="number"
-                name="num1-max"
-                id="num1-max"
-                size="10"
-                min="0"
-                max="1000000"
-                value="20"
-              />
-            </div>
-            <div>
-              <p>Second number value range:</p>
-              <label for="num2-min">Min:</label><br />
-              <input
-                type="number"
-                name="num2-min"
-                id="num2-min"
-                size="10"
-                min="0"
-                max="1000000"
-                value="0"
-              /><br />
-              <label for="num2-max">Max:</label><br />
-              <input
-                type="number"
-                name="num2-max"
-                id="num2-max"
-                size="10"
-                min="0"
-                max="1000000"
-                value="20"
-              />
+            <div id="num2-range">
+              <h4>Second number value range</h4>
+              <div class="range-inputs">
+                <div class="range-field">
+                  <label for="num2-min">Min</label>
+                  <input
+                    type="number"
+                    name="num2-min"
+                    id="num2-min"
+                    size="8"
+                    min="0"
+                    max="10000"
+                    value="0"
+                  />
+                </div>
+                <div class="range-field">–</div>
+                <div class="range-field">
+                  <label for="num2-max">Max</label>
+                  <input
+                    type="number"
+                    name="num2-max"
+                    id="num2-max"
+                    size="8"
+                    min="0"
+                    max="10000"
+                    value="0"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
         <!-- TODO: When score keeping implemented, then add reset button -->
         <!-- <div>
           <button id="check" class="btn">Reset</button>
@@ -148,13 +145,13 @@
           <button class="close-modal">&times;</button>
           <h2>Settings Info</h2>
           <h3>Operators</h3>
-          <p>Use checkboxes to select which operations will be generated.</p>
+          <p>Use checkboxes to select which operations can be generated.</p>
           <p>
-            Subtraction, division, and remainder problems always have the larger
-            number on top.
+            Note: Subtraction, division, and remainder problems always have the
+            larger number on top.
           </p>
           <p>
-            Division and remainder problems will ask for integers (whole
+            Note: Division and remainder problems will ask for integers (whole
             numbers), not any decimal values.
           </p>
           <h3>Numbers</h3>

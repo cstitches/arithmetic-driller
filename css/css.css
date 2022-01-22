@@ -214,7 +214,7 @@ FEEDBACK MESSAGE
   /* width: 100%; */
   margin: 3rem 0;
   padding: 2rem 1rem;
-  font-size: 1.3rem;
+  font-size: 1.45rem;
   text-align: center;
 }
 
@@ -444,7 +444,7 @@ MEDIA QUERY - XS - sub 375px;
     font-size: 2.8rem;
   }
   .arith-msg {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
   .btn {
     font-size: 1.3rem;

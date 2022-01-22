@@ -459,6 +459,10 @@ MEDIA QUERY - MD - 625-950px
   .btn {
     font-size: 2.15rem;
   }
+
+  .arith-msg {
+    font-size: 1.75rem;
+  }
 }
 
 /***************************
@@ -479,7 +483,7 @@ MEDIA QUERY - LG - 875+
   }
 
   .arith-msg {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .btn {
@@ -494,5 +498,22 @@ MEDIA QUERY - LG - 875+
     min-width: fit-content;
     padding: 1.25rem 2rem;
     box-shadow: none;
+  }
+}
+
+/***************************
+MEDIA QUERY - XL - 1200+
+***************************/
+
+@media only screen and (min-width: 1200px) {
+  .equation {
+    font-size: 4.3rem;
+  }
+  .equation.stacked #answ-input {
+    font-size: 4rem;
+  }
+
+  .arith-msg {
+    font-size: 2.25rem;
   }
 }

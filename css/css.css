@@ -253,6 +253,7 @@ BUTTONS
   font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
+  position: relative;
 }
 
 .btn:active {
@@ -270,6 +271,16 @@ BUTTONS
 .btn-next {
   background: linear-gradient(to bottom, #ffb7dc 0%, #d84136 100%);
   border: none;
+}
+
+.btn-key {
+  position: absolute;
+  color: rgba(255, 255, 255, 75%);
+  font-size: 1.15rem;
+  font-weight: lighter;
+  bottom: 5px;
+  right: 10px;
+  display: none;
 }
 
 /***************************
@@ -473,6 +484,10 @@ MEDIA QUERY - LG - 875+
 
   .btn {
     font-size: 2.5rem;
+  }
+
+  .btn-key {
+    display: initial;
   }
 
   #settings {

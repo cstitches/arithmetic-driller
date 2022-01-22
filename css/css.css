@@ -308,12 +308,10 @@ SETTINGS
   text-align: center;
   border: 1px solid #4cb880;
   border-radius: 3px;
-  -moz-appearance: textfield;
 }
 
 #settings input[type="number"]:focus {
   outline: 2px solid var(--color-p);
-  -moz-appearance: none;
 }
 
 /***************************
@@ -341,11 +339,11 @@ INFO ICON & MODAL
 
 .info-icon {
   display: inline-block;
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 1.2rem;
+  height: 1.2rem;
   cursor: pointer;
-  font-size: 0.8rem;
-  line-height: 0.85rem;
+  font-size: 1rem;
+  line-height: 1.05rem;
   text-align: center;
   color: white;
   background: var(--color-p);

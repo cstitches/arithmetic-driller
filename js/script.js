@@ -119,13 +119,6 @@ function newEquation() {
 
 function newRandomOperator() {
   checkCheckboxes();
-<<<<<<< HEAD
-  checkRanges();
-  // store operator & number values
-  arithOp = getRandomOperator();
-  arithNum0 = getRandomNumber(num0Min.value, num0Max.value);
-  arithNum1 = getRandomNumber(num1Min.value, num1Max.value);
-=======
   const checkedOps = [];
   if (checkAdd.checked === true) checkedOps.push("+");
   if (checkSub.checked === true) checkedOps.push("−");
@@ -186,7 +179,6 @@ function correctInvalidNumInput(min, max) {
 // FUNCTION: DISPLAY EQUATION
 
 function displayEquation(op, num1, num2) {
->>>>>>> develop
   // display operator & number values
   if (op === "R") {
     elOp.textContent = op;
@@ -208,32 +200,6 @@ function displayEquation(op, num1, num2) {
 function solveEquation(op, num1, num2) {
   //   probAnswer = arithNum0 + arithNum1;
   //   return probAnswer;
-<<<<<<< HEAD
-  if (op === "+") probAnswer = num0 + num1;
-  if (op === "×") probAnswer = num0 * num1;
-  // removes divide by 0
-  if ((op === "÷" && num0 === 0) || num1 === 0) {
-    getNewProblem();
-  }
-  //   } else {
-  //     probAnswer = probAnswer = Math.floor(num0 / num1);
-  //   }
-
-  //   switches bigger number to top for sub, div, mod
-  if (op === "−" || op === "÷" || op === "R") {
-    if (num0 < num1) {
-      if (op === "−") probAnswer = num1 - num0;
-      if (op === "÷") probAnswer = Math.floor(num1 / num0);
-      if (op === "R") probAnswer = Math.floor(num1 % num0);
-      arithNum0El.textContent = num1;
-      arithNum1El.textContent = num0;
-    } else {
-      if (op === "−") probAnswer = num0 - num1;
-      if (op === "R") probAnswer = num0 % num1;
-      if (op === "÷") {
-        probAnswer = Math.floor(num0 / num1);
-      }
-=======
   if (op === "+") solution = num1 + num2;
   if (op === "−") solution = num1 - num2;
   if (op === "×") solution = num1 * num2;
@@ -264,7 +230,6 @@ function checkAnswer() {
   if (checkAnswShown() === false) {
     if (checkAnswValid() === true) {
       compareAnsw();
->>>>>>> develop
     }
   }
 }
@@ -322,29 +287,12 @@ function showAnswer() {
   makeMsgVis();
 }
 
-<<<<<<< HEAD
-// FUNCTION: CHECK CHECKBOXES --------------------
-// If all are unchecked, 'addition' is automatically checked
-=======
 // FUNCTIONS: MESSAGE ELEMENT & ANSWER INPUT
->>>>>>> develop
 
 function clearInputAnsw() {
   inputAnsw.value = "";
 }
 
-<<<<<<< HEAD
-// FUNCTION: CHECK RANGES --------------------
-// TODO: Make this actually work
-function checkRanges() {
-  if (num0Min.value > num0Max.value || num1Min.value > num1Max.value) {
-    message.textContent =
-      "Minimum numbers are larger than maximums. Please fix.";
-  }
-}
-
-// FUNCTION: GENERATE RANDOM OPERATOR FROM CHECKED --------------------
-=======
 function makeMsgVis() {
   message.classList.remove("invisible");
 }
@@ -370,7 +318,6 @@ function setMsgWrong() {
   elMsg.classList.remove("msg-show");
   elMsg.classList.add("msg-wrong");
 }
->>>>>>> develop
 
 //=============================================
 // ===== MODAL =====

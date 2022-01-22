@@ -1,0 +1,519 @@
+/***************************
+===CSS CONTENTS===
+
+FONT IMPORT
+CUSTOM PROPERTIES
+UTILITY CLASSES
+UNIVERSAL BORDER-BOX
+PAGE STYLES
+PAGE LAYOUT
+EQUATION
+FEEDBACK MESSAGE
+BUTTONS
+SETTINGS
+INFO ICON & MODAL (COMPONENT LAYOUT & STYLING)
+HEADER & FOOTER
+MEDIA QUERY - XS - sub 375px;
+MEDIA QUERY - LG - 875px+
+***************************/
+
+/***************************
+FONT IMPORT
+***************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Karla&family=Mochiy+Pop+P+One&family=Nunito&family=Oswald:wght@300&family=Poppins&family=Quicksand&family=Righteous&family=Rubik:wght@300;400&family=Staatliches&display=swap");
+
+/* 
+
+    font-family: 'Dongle', sans-serif;
+
+    font-family: 'Karla', sans-serif;
+
+    font-family: 'Mochiy Pop P One', sans-serif;
+
+    font-family: 'Nunito', sans-serif;
+
+    font-family: 'Oswald', sans-serif;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Quicksand', sans-serif;
+
+    font-family: 'Righteous', cursive;
+
+    font-family: 'Rubik', sans-serif;
+
+    font-family: 'Staatliches', cursive;
+
+*/
+
+/***************************
+CUSTOM PROPERTIES
+
+-p = primary
+-a = accent
+***************************/
+:root {
+  --color-p: #2c9c88;
+  --color-a: rgb(237, 249, 238);
+  --ff-p: "Rubik", sans-serif;
+  --ff-a: "Staatliches", cursive;
+}
+
+/***************************
+UTILITY CLASSES
+***************************/
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.small {
+  font-size: smaller;
+}
+
+/***************************
+UNIVERSAL BORDER-BOX
+***************************/
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; /* enables smooth scrolling */
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/***************************
+PAGE STYLES
+***************************/
+
+body {
+  color: #333;
+  font-family: var(--ff-p);
+  font-weight: 300;
+}
+
+a:link,
+a:visited,
+a:hover {
+  color: var(--color-a);
+  text-decoration: none;
+  border-bottom: 1px solid #8ad8b1;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+/***************************
+PAGE LAYOUT
+***************************/
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#middle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#arith-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 0;
+}
+
+/***************************
+EQUATION
+***************************/
+
+/***** EQUATION LAYOUT *****/
+
+/* Based on https://jsbin.com/afemaf/1/edit?html,output */
+
+.equation.stacked {
+  flex: 1;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.equation.stacked .number {
+  display: block;
+  margin-left: 0.5%;
+  text-align: right;
+}
+
+.equation.stacked .operator {
+  float: left;
+}
+
+.equation.stacked .equals {
+  /* hides '=' sign */
+  height: 0;
+  overflow: hidden;
+  /* creates horizontal line for 'equals' */
+  border-bottom: solid 4px black;
+  /* presentational spacing & sizing */
+  margin: 0.5rem 0 1rem 0;
+  width: 100%;
+}
+
+.equation.stacked #answ-input {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 3rem;
+}
+
+#answ-input {
+  -moz-appearance: textfield;
+}
+
+/***** EQUATION STYLING *****/
+
+.equation {
+  font-size: 4rem;
+}
+
+#answ-input {
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-weight: 300;
+  background: var(--color-a);
+  border: 2px solid #4cb880;
+  -moz-appearance: textfield;
+}
+
+#answ-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 2rem;
+}
+
+#answ-input:focus {
+  outline: 2px solid var(--color-p);
+}
+
+/***************************
+FEEDBACK MESSAGE
+***************************/
+
+.arith-msg {
+  /* width: 100%; */
+  margin: 3rem 0;
+  padding: 2rem 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.arith-msg p {
+  margin: 0;
+}
+
+.msg-correct {
+  color: #cd851a;
+}
+.msg-wrong {
+  color: #d84136;
+}
+.msg-show {
+  color: #2c6c9c;
+}
+
+/***************************
+BUTTONS
+***************************/
+
+.arith-btns {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 1.5rem 0.5rem;
+  cursor: pointer;
+  color: #fff;
+  font-family: var(--ff-a);
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.btn:active {
+  font-size: 1.2rem;
+}
+
+.btn-check {
+  background: linear-gradient(to bottom, #f7ef98 0%, #cd851a 100%);
+  border: none;
+}
+.btn-show {
+  background: linear-gradient(to bottom, #b2f3ef 0%, #2c6c9c 100%);
+  border: none;
+}
+.btn-next {
+  background: linear-gradient(to bottom, #ffb7dc 0%, #d84136 100%);
+  border: none;
+}
+
+.btn-key {
+  position: absolute;
+  color: rgba(255, 255, 255, 75%);
+  font-size: 1.15rem;
+  font-weight: lighter;
+  bottom: 5px;
+  right: 10px;
+  display: none;
+}
+
+/***************************
+SETTINGS
+***************************/
+
+#settings {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 0.5rem;
+  background: var(--color-a);
+  /* box-shadow: #4cb880 0px 20px 40px -12px inset; */
+  /* box-shadow: #8ad8b1 0px 15px 12px -12px inset; */
+  box-shadow: 0px 14px 10px -12px rgba(76, 184, 128, 0.5) inset;
+}
+
+#settings h2 {
+  font-family: var(--ff-a);
+  font-size: 2rem;
+  text-align: center;
+}
+
+#settings h3 {
+  padding-bottom: 0.15rem;
+  font-size: 1.25rem;
+  border-bottom: 2px solid var(--color-p);
+}
+
+#settings > div {
+  margin: 0 auto;
+}
+
+#settings input[type="number"] {
+  padding: 0.2rem;
+  font-weight: 300;
+  text-align: center;
+  border: 1px solid #4cb880;
+  border-radius: 3px;
+}
+
+#settings input[type="number"]:focus {
+  outline: 2px solid var(--color-p);
+}
+
+/***************************
+SETTINGS: NUMBER RANGES
+***************************/
+
+.range-inputs {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  margin: 10px 0;
+}
+
+.range-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/***************************
+INFO ICON & MODAL
+***************************/
+
+.info-icon {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.05rem;
+  text-align: center;
+  color: white;
+  background: var(--color-p);
+  border-radius: 50%;
+  position: relative;
+  top: -1rem;
+  left: 0.5rem;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+/***************************
+HEADER & FOOTER
+***************************/
+
+h1 {
+  font-family: var(--ff-a);
+  font-size: 2.8rem;
+}
+
+header,
+footer {
+  padding: 0.5rem;
+  background: linear-gradient(to bottom, hsl(149, 43%, 51%) 0%, #2c9c88 100%);
+  color: white;
+  text-align: center;
+}
+
+header {
+  box-shadow: 0px 14px 10px -12px rgba(76, 184, 128, 0.5);
+}
+
+footer p {
+  margin: 0;
+  font-size: smaller;
+}
+
+/***************************
+MEDIA QUERY - XS - sub 375px;
+***************************/
+
+@media only screen and (max-width: 374px) {
+  h1 {
+    font-size: 2rem;
+  }
+  #settings h2 {
+    font-size: 1.7rem;
+  }
+  .equation {
+    font-size: 3.4rem;
+  }
+  .equation.stacked #answ-input {
+    font-size: 2.8rem;
+  }
+  .arith-msg {
+    font-size: 1.1rem;
+  }
+  .btn {
+    font-size: 1.3rem;
+  }
+}
+
+/***************************
+MEDIA QUERY - MD - 625-950px
+***************************/
+
+@media only screen and (min-width: 625px) and (max-width: 875px) {
+  .btn {
+    font-size: 2.15rem;
+  }
+
+  .arith-msg {
+    font-size: 1.75rem;
+  }
+}
+
+/***************************
+MEDIA QUERY - LG - 875+
+***************************/
+
+@media only screen and (min-width: 875px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  #middle {
+    flex-direction: row;
+  }
+
+  #arith-main {
+    flex: 1;
+  }
+
+  .arith-msg {
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 2.5rem;
+  }
+
+  .btn-key {
+    display: initial;
+  }
+
+  #settings {
+    min-width: fit-content;
+    padding: 1.25rem 2rem;
+    box-shadow: none;
+  }
+}
+
+/***************************
+MEDIA QUERY - XL - 1200+
+***************************/
+
+@media only screen and (min-width: 1200px) {
+  .equation {
+    font-size: 4.3rem;
+  }
+  .equation.stacked #answ-input {
+    font-size: 4rem;
+  }
+
+  .arith-msg {
+    font-size: 2.25rem;
+  }
+}

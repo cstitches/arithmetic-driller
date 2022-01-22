@@ -222,47 +222,59 @@ function divide(op, num1, num2) {
 //=============================================
 
 // FUNCTION: CHECK ANSWER ---------------------
+// checks: answer hasn't been shown yet; input is valid
+// passing those, compare answer to solution
+// if correct; if wrong
 
 function checkAnswer() {
-  if (answShown === false) {
-    if (!inputAnsw.value) {
-      elMsg.classList.remove("msg-correct");
-      elMsg.classList.remove("msg-show");
-      elMsg.classList.add("msg-wrong");
-      message.textContent = "❌ No answer, try again";
-      makeMsgVis();
-    } else {
-      answer = Number(inputAnsw.value);
-      if (isNaN(answer) === true) {
-        message.textContent = "❌ Not a valid answer, try again";
-        elMsg.classList.remove("msg-correct");
-        elMsg.classList.remove("msg-show");
-        elMsg.classList.add("msg-wrong");
-        makeMsgVis();
-      } else if (answer === solution) {
-        message.textContent = `👍 Correct!`;
-        elMsg.classList.remove("msg-wrong");
-        elMsg.classList.remove("msg-show");
-        elMsg.classList.add("msg-correct");
-        makeMsgVis();
-      } else {
-        attempts++;
-        if (attempts > 1) {
-          message.textContent = `Incorrect (${attempts} attempts)`;
-        } else {
-          message.textContent = `Incorrect (${attempts} attempt)`;
-          elMsg.classList.remove("msg-correct");
-          elMsg.classList.remove("msg-show");
-          elMsg.classList.add("msg-wrong");
-          makeMsgVis();
-        }
-      }
+  if (checkAnswShown() === false) {
+    if (checkAnswValid() === true) {
+      compareAnsw();
     }
-  } else {
-    elMsg.classList.remove("msg-correct");
-    elMsg.classList.remove("msg-show");
-    elMsg.classList.add("msg-wrong");
+  }
+}
+
+// FUNCTION: CHECK IF ANSWER SHOWN
+
+function checkAnswShown() {
+  if (answShown === true) {
     message.textContent = "❌ You've seen the answer.";
+    setMsgWrong();
+  } else {
+    return false;
+  }
+}
+
+// FUNCTION: CHECK IF ANSWER VALID
+
+function checkAnswValid() {
+  if (!inputAnsw.value || isNaN(inputAnsw.value) === true) {
+    console.log(typeof inputAnsw.value, isNaN(inputAnsw.value));
+    message.textContent = "❌ No answer, try again";
+    setMsgWrong();
+    makeMsgVis();
+  } else {
+    return true;
+  }
+}
+
+// FUNCTION: COMPARE ANSWER TO SOLUTION
+
+function compareAnsw() {
+  answer = Number(inputAnsw.value);
+  if (answer === solution) {
+    message.textContent = `👍 Correct!`;
+    setMsgCorrect();
+    makeMsgVis();
+  } else {
+    attempts++;
+    if (attempts > 1) {
+      message.textContent = `Incorrect (${attempts} attempts)`;
+    } else {
+      message.textContent = `Incorrect (${attempts} attempt)`;
+      setMsgWrong();
+      makeMsgVis();
+    }
   }
 }
 
@@ -270,12 +282,12 @@ function checkAnswer() {
 
 function showAnswer() {
   answShown = true;
-  makeMsgVis();
-  setMsgShow();
   message.textContent = `The answer is ${solution}`;
+  setMsgShow();
+  makeMsgVis();
 }
 
-// FUNCTIONS: CONTROL MESSAGE ELEMENT & ANSWER INPUT
+// FUNCTIONS: MESSAGE ELEMENT & ANSWER INPUT
 
 function clearInputAnsw() {
   inputAnsw.value = "";

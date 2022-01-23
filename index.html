@@ -8,170 +8,167 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
     />
-    <link rel="stylesheet" href="css/css.css" />
-    <!-- <link rel="stylesheet" href="/utilities/media-query-reporter.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
     <script src="/js/script.js" defer></script>
   </head>
   <body class="flex-col">
-    <!------- 1 HEADER ------->
-    <header>
-      <h1>Arithmetic Driller</h1>
-    </header>
-
-    <!------- 1 MIDDLE > ARITH-MAIN + SETTINGS ------->
-    <section id="middle">
-      <!------- 2 ARITH-MAIN ------->
-      <section id="arith-main">
-        <!-- 3 EQUATION-COMP -->
-        <section class="equation stacked">
-          <span class="equation-prob">
-            <span class="number" id="num1">150</span>
-            <span class="operator" id="op">+</span>
-            <span class="number" id="num2">5</span>
-          </span>
-          <span class="equals">=</span>
-          <input
-            type="number"
-            class="number"
-            name="answ"
-            id="answ-input"
-            size="5"
-            placeholder="answer"
-          />
+    <div class="wrapper">
+      <!------- 1 HEADER ------->
+      <header>
+        <h1>Arithmetic Driller</h1>
+      </header>
+      <!------- 1 MIDDLE > ARITH-MAIN + SETTINGS ------->
+      <section id="middle">
+        <!------- 2 ARITH-MAIN ------->
+        <section id="arith-main">
+          <!-- 3 EQUATION-COMP -->
+          <section class="equation stacked">
+            <span class="equation-prob">
+              <span class="number" id="num1">150</span>
+              <span class="operator" id="op">+</span>
+              <span class="number" id="num2">5</span>
+            </span>
+            <span class="equals">=</span>
+            <input
+              type="number"
+              class="number"
+              name="answ"
+              id="answ-input"
+              size="5"
+              placeholder="answer"
+            />
+          </section>
+          <!-- 3 ARITH-MSG -->
+          <section class="arith-msg">
+            <p id="message"></p>
+          </section>
+          <!-- 3 ARITH-BTNS -->
+          <section class="arith-btns">
+            <button class="btn btn-check">✏️ Check<span class="btn-key">[Enter]</span></button>
+            <button class="btn btn-show">📖 Show<span class="btn-key">[Shift]</span></button>
+            <button class="btn btn-next">❤️‍🔥 Next<span class="btn-key">[Alt]</span></button>
+          </section>
         </section>
-        <!-- 3 ARITH-MSG -->
-        <section class="arith-msg">
-          <p id="message"></p>
-        </section>
-        <!-- 3 ARITH-BTNS -->
-        <section class="arith-btns">
-          <button class="btn btn-check">✏️ Check<span class="btn-key">[Enter]</span></button>
-          <button class="btn btn-show">📖 Show<span class="btn-key">[Shift]</span></button>
-          <button class="btn btn-next">❤️‍🔥 Next<span class="btn-key">[Alt]</span></button>
-        </section>
+        <!------- 2 SETTINGS ------->
+        <aside id="settings">
+          <div>
+            <h2>Settings<span class="info-icon">ℹ</span></h2>
+          </div>
+          <div>
+            <div>
+              <h3>Operators</h3>
+              <div class="heading-line"></div>
+              <input type="checkbox" name="add" id="check-add" />
+              <label for="add">Addition ( + )</label><br />
+              <input type="checkbox" name="sub" id="check-sub" />
+              <label for="sub">Subtraction ( − )</label><br />
+              <input type="checkbox" name="mul" id="check-mul" />
+              <label for="mul">Multiplication ( × )</label><br />
+              <input type="checkbox" name="div" id="check-div" />
+              <label for="div">Division ( ÷ )</label><br />
+              <input type="checkbox" name="mod" id="check-mod" />
+              <label for="mod">Remainder ( <span class="small">R</span> )</label>
+            </div>
+            <div>
+              <h3>Numbers</h3>
+              <!-- TODO: Get negative numbers and decimals working -->
+              <div id="num1-range">
+                <h4>First number value range</h4>
+                <div class="range-inputs">
+                  <div class="range-field">
+                    <label for="num1-min">Min</label>
+                    <input
+                      type="number"
+                      name="num1-min"
+                      id="num1-min"
+                      size="8"
+                      min="1"
+                      max="1000000"
+                      value="0"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div class="range-field">–</div>
+                  <div class="range-field">
+                    <label for="num1-max">Max</label>
+                    <input
+                      type="number"
+                      name="num1-max"
+                      id="num1-max"
+                      size="8"
+                      min="1"
+                      max="1000000"
+                      value="50"
+                      placeholder="1000000"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div id="num2-range">
+                <h4>Second number value range</h4>
+                <div class="range-inputs">
+                  <div class="range-field">
+                    <label for="num2-min">Min</label>
+                    <input
+                      type="number"
+                      name="num2-min"
+                      id="num2-min"
+                      size="8"
+                      min="0"
+                      max="1000000"
+                      value="0"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div class="range-field">–</div>
+                  <div class="range-field">
+                    <label for="num2-max">Max</label>
+                    <input
+                      type="number"
+                      name="num2-max"
+                      id="num2-max"
+                      size="8"
+                      min="0"
+                      max="1000000"
+                      value="50"
+                      placeholder="1000000"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- TODO: When score keeping implemented, then add reset button -->
+          <!-- <div>
+            <button id="check" class="btn">Reset</button>
+          </div> -->
+        </aside>
       </section>
-
-      <!------- 2 SETTINGS ------->
-      <aside id="settings">
-        <div>
-          <h2>Settings<span class="info-icon">ℹ</span></h2>
-        </div>
-        <div>
-          <div>
+      <!-- SETTINGS INFO MODAL & OVERLAY -->
+          <div class="modal hidden">
+            <button class="close-modal">&times;</button>
+            <h2>Settings Info</h2>
             <h3>Operators</h3>
-            <div class="heading-line"></div>
-            <input type="checkbox" name="add" id="check-add" />
-            <label for="add">Addition ( + )</label><br />
-            <input type="checkbox" name="sub" id="check-sub" />
-            <label for="sub">Subtraction ( − )</label><br />
-            <input type="checkbox" name="mul" id="check-mul" />
-            <label for="mul">Multiplication ( × )</label><br />
-            <input type="checkbox" name="div" id="check-div" />
-            <label for="div">Division ( ÷ )</label><br />
-            <input type="checkbox" name="mod" id="check-mod" />
-            <label for="mod">Remainder ( <span class="small">R</span> )</label>
-          </div>
-          <div>
+            <p>Use checkboxes to select which operations can be generated.</p>
+            <p>
+              Note: Division and remainder problems will ask for integers (whole
+              numbers), not any decimal values.
+            </p>
             <h3>Numbers</h3>
-            <!-- TODO: Get negative numbers and decimals working -->
-            <div id="num1-range">
-              <h4>First number value range</h4>
-              <div class="range-inputs">
-                <div class="range-field">
-                  <label for="num1-min">Min</label>
-                  <input
-                    type="number"
-                    name="num1-min"
-                    id="num1-min"
-                    size="8"
-                    min="1"
-                    max="1000000"
-                    value="0"
-                    placeholder="0"
-                  />
-                </div>
-                <div class="range-field">–</div>
-                <div class="range-field">
-                  <label for="num1-max">Max</label>
-                  <input
-                    type="number"
-                    name="num1-max"
-                    id="num1-max"
-                    size="8"
-                    min="1"
-                    max="1000000"
-                    value="50"
-                    placeholder="1000000"
-                  />
-                </div>
-              </div>
-            </div>
-            <div id="num2-range">
-              <h4>Second number value range</h4>
-              <div class="range-inputs">
-                <div class="range-field">
-                  <label for="num2-min">Min</label>
-                  <input
-                    type="number"
-                    name="num2-min"
-                    id="num2-min"
-                    size="8"
-                    min="0"
-                    max="1000000"
-                    value="0"
-                    placeholder="0"
-                  />
-                </div>
-                <div class="range-field">–</div>
-                <div class="range-field">
-                  <label for="num2-max">Max</label>
-                  <input
-                    type="number"
-                    name="num2-max"
-                    id="num2-max"
-                    size="8"
-                    min="0"
-                    max="1000000"
-                    value="50"
-                    placeholder="1000000"
-                  />
-                </div>
-              </div>
-            </div>
+            <p>Minimums restricted to 0.</p>
+            <p>Maximums restricted to 1000000 (1 million).</p>
+            <p>
+              At this time, negative numbers and decimals are not supported (but
+              will be in the future!).
+            </p>
           </div>
-        <!-- TODO: When score keeping implemented, then add reset button -->
-        <!-- <div>
-          <button id="check" class="btn">Reset</button>
-        </div> -->
-
-        <!-- SETTINGS INFO MODAL & OVERLAY -->
-        <div class="modal hidden">
-          <button class="close-modal">&times;</button>
-          <h2>Settings Info</h2>
-          <h3>Operators</h3>
-          <p>Use checkboxes to select which operations can be generated.</p>
-          <p>
-            Note: Division and remainder problems will ask for integers (whole
-            numbers), not any decimal values.
-          </p>
-          <h3>Numbers</h3>
-          <p>Minimums restricted to 0.</p>
-          <p>Maximums restricted to 1000000 (1 million).</p>
-          <p>
-            At this time, negative numbers and decimals are not supported (but
-            will be in the future!).
-          </p>
-        </div>
-        <div class="overlay hidden"></div>
-      </aside>
-    </section>
-
-    <!------- 1 FOOTER ------->
-    <footer>
-      <p>
-        © 2022 ✦ From the 🤔 ❤️ ✋ of
-        <a href="https://github.com/cstitches">cstitches</a>
-      </p>
-    </footer>
+          <div class="overlay hidden"></div>
+      <!------- 1 FOOTER ------->
+      <footer>
+        <p>
+          © 2022 ✦ From the 🤔 ❤️ ✋ of
+          <a href="https://github.com/cstitches">cstitches</a>
+        </p>
+      </footer>
+    </div>
   </body>
 </html>

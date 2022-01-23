@@ -116,6 +116,14 @@ PAGE LAYOUT
 ***************************/
 
 body {
+  background: rgb(237, 237, 237);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -148,6 +156,11 @@ EQUATION
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 0.5rem;
+}
+
+.equation-prob {
+  display: inline-block;
 }
 
 .equation.stacked .number {
@@ -214,7 +227,7 @@ FEEDBACK MESSAGE
   /* width: 100%; */
   margin: 3rem 0;
   padding: 2rem 1rem;
-  font-size: 1.45rem;
+  font-size: 1.3rem;
   text-align: center;
 }
 
@@ -418,7 +431,7 @@ footer {
 }
 
 header {
-  box-shadow: 0px 14px 10px -12px rgba(76, 184, 128, 0.5);
+  /* box-shadow: 0px 14px 10px -12px rgba(76, 184, 128, 0.5); */
 }
 
 footer p {
@@ -444,7 +457,7 @@ MEDIA QUERY - XS - sub 375px;
     font-size: 2.8rem;
   }
   .arith-msg {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
   .btn {
     font-size: 1.3rem;
@@ -463,6 +476,17 @@ MEDIA QUERY - MD - 625-950px
   .arith-msg {
     font-size: 1.75rem;
   }
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 /***************************
